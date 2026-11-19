@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduation Invitation | Thanh Hằng - Master of Industrial Engineering</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Be Vietnam Pro, Cormorant Garamond & Great Vibes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Canvas Confetti for celebratory sparkle burst -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Be Vietnam Pro"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        script: ['"Great Vibes"', 'cursive'],
+                    },
+                    colors: {
+                        ice: {
+                            50: '#F4FAFF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            300: '#7DD3FC',
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            700: '#0369A1',
+                            900: '#0C4A6E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Sparkle & Rhinestone Aesthetic */
+        body {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 35%, #DBEAFE 70%, #F0F9FF 100%);
+            background-attachment: fixed;
+            color: #0F294A;
+            overflow-x: hidden;
+        }
+
+        /* Floating Soft Orbs */
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(70px);
+            z-index: 0;
+            pointer-events: none;
+            animation: floatOrb 12s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, -40px) scale(1.1); }
+        }
+
+        /* Glassmorphism Crystal Card */
+        .crystal-card {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1.5px solid rgba(255, 255, 255, 0.92);
+            box-shadow: 
+                0 12px 40px -10px rgba(14, 165, 233, 0.16),
+                inset 0 0 24px rgba(255, 255, 255, 0.85);
+        }
+
+        /* Rhinestone Shimmer Border Effect */
+        .rhinestone-border {
+            position: relative;
+        }
+        .rhinestone-border::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(
+                125deg,
+                rgba(255,255,255,0.95) 0%,
+                rgba(186,230,253,0.8) 25%,
+                rgba(255,255,255,1) 50%,
+                rgba(125,211,252,0.85) 75%,
+                rgba(255,255,255,0.95) 100%
+            );
+            background-size: 250% 250%;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: shimmerBorder 4s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmerBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Rhinestone Studs around Portrait */
+        .rhinestone-ring {
+            background: conic-gradient(
+                from 0deg,
+                #ffffff, #bae6fd, #ffffff, #e0f2fe, #ffffff, #7dd3fc, #ffffff, #bae6fd, #ffffff
+            );
+            box-shadow: 
+                0 0 25px rgba(125, 211, 252, 0.65),
+                0 0 50px rgba(255, 255, 255, 0.9),
+                inset 0 0 12px rgba(255, 255, 255, 1);
+            animation: spinSlow 18s linear infinite;
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Twinkling 4-point Sparkle Star */
+        .sparkle-star {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            animation: twinkleStar var(--duration, 3s) ease-in-out infinite;
+            animation-delay: var(--delay, 0s);
+        }
+
+        @keyframes twinkleStar {
+            0%, 100% { transform: scale(0.3) rotate(0deg); opacity: 0.2; }
+            50% { transform: scale(1.15) rotate(45deg); opacity: 0.95; filter: drop-shadow(0 0 6px #ffffff); }
+        }
+
+        /* Glossy Sparkle Button */
+        .btn-sparkle {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0284C7 0%, #38BDF8 50%, #0369A1 100%);
+            background-size: 200% auto;
+            transition: all 0.35s ease;
+            box-shadow: 0 8px 24px -4px rgba(2, 132, 199, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+        .btn-sparkle:hover {
+            background-position: right center;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.55), 0 0 16px rgba(186, 230, 253, 0.8);
+        }
+        .btn-sparkle::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 40%;
+            height: 200%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(25deg);
+            animation: sweepGlint 3.8s infinite;
+        }
+
+        @keyframes sweepGlint {
+            0% { left: -60%; }
+            25% { left: 130%; }
+            100% { left: 130%; }
+        }
+
+        /* Silver Shimmer Text */
+        .shimmer-text {
+            background: linear-gradient(90deg, #0C4A6E 0%, #0284C7 35%, #38BDF8 50%, #0284C7 65%, #0C4A6E 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 5s linear infinite;
+        }
+
+        @keyframes textShine {
+            to { background-position: 200% center; }
+        }
+
+        /* Smooth Reveal */
+        .fade-slide-up {
+            animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-sky-200 selection:text-sky-900 relative">
+
+    <!-- Ambient Pastel Blue Orbs -->
+    <div class="bg-orb w-80 h-80 bg-sky-200/60 top-[-5%] left-[-10%]"></div>
+    <div class="bg-orb w-96 h-96 bg-blue-200/50 bottom-[10%] right-[-10%]" style="animation-delay: -5s;"></div>
+    <div class="bg-orb w-72 h-72 bg-white/80 top-[40%] left-[20%]" style="animation-delay: -2s;"></div>
+
+    <!-- Container for Floating Blink-Blink Sparkles -->
+    <div id="sparkle-layer" aria-hidden="true"></div>
+
+    <!-- Custom Toast Notification (No alert() used) -->
+    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 hidden transition-all duration-300">
+        <div class="crystal-card px-5 py-3 rounded-full flex items-center gap-2.5 shadow-xl border border-white text-sky-900 text-sm font-medium">
+            <i data-lucide="sparkles" class="w-4 h-4 text-sky-500 shrink-0"></i>
+            <span id="toast-message">Thông báo</span>
+        </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <main class="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8">
+
+        <!-- HERO CARD -->
+        <section class="crystal-card rhinestone-border rounded-[2rem] p-6 sm:p-10 text-center relative overflow-hidden">
+            <!-- Corner Rhinestone Accents -->
+            <div class="absolute top-4 left-4 text-sky-400/70 animate-pulse">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+            </div>
+            <div class="absolute top-4 right-4 text-sky-400/70 animate-pulse" style="animation-delay: 1s;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+            </div>
+
+            <!-- Top Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-sky-200/80 shadow-sm mb-5">
+                <i data-lucide="graduation-cap" class="w-4 h-4 text-sky-600"></i>
+                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-sky-700">Graduation Ceremony</span>
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-sky-400"></i>
+            </div>
+
+            <!-- Personalized Guest Salutation -->
+            <div class="mb-6">
+                <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-sky-600/80 font-medium mb-1">
+                    Trân trọng kính mời
+                </p>
+                <div class="inline-block relative px-6 py-1.5 rounded-2xl bg-gradient-to-r from-sky-100/60 via-white/90 to-sky-100/60 border border-white shadow-inner">
+                    <h2 id="guest-display-name" class="text-xl sm:text-2xl font-bold text-sky-900 tracking-wide">
+                        Bạn thân mến
+                    </h2>
+                </div>
+                <p class="text-sm text-slate-600 mt-2.5 max-w-md mx-auto leading-relaxed">
+                    Đến chung vui và lưu giữ khoảnh khắc cột mốc đáng nhớ trong Lễ Tốt Nghiệp của
+                </p>
+            </div>
+
+            <!-- Rhinestone Portrait Frame with Upload Capability -->
+            <div class="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto my-6 group">
+                <!-- Rotating Glitter Halo -->
+                <div class="rhinestone-ring absolute inset-0 rounded-full p-[5px]">
+                    <div class="w-full h-full rounded-full bg-sky-50"></div>
+                </div>
+
+                <!-- Sparkle Gems placed around circle -->
+                <span class="absolute -top-2 left-1/2 -translate-x-1/2 text-white drop-shadow-[0_0_8px_rgba(56,189,248,0.9)] z-20">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/></svg>
+                </span>
+                <span class="absolute bottom-3 -left-1 text-sky-200 drop-shadow-[0_0_6px_rgba(255,255,255,1)] z-20">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/></svg>
+                </span>
+                <span class="absolute top-6 -right-1 text-white drop-shadow-[0_0_6px_rgba(56,189,248,1)] z-20">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/></svg>
+                </span>
+
+                <!-- Inner Portrait Container -->
+                <div class="absolute inset-[7px] rounded-full overflow-hidden bg-gradient-to-b from-sky-100 to-blue-50 border-2 border-white shadow-inner z-10 flex items-center justify-center">
+                    <img id="avatarImg" 
+                         src="./avatar.jpg"
+                         alt="Thanh Hằng Graduation Portrait" 
+                         class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                         onerror="this.src='https://placehold.co/400x400/e0f2fe/0369a1?text=Thanh+Hang'">
+                </div>
+
+                <!-- Upload / Change Photo Button -->
+                <label for="photo-upload" title="Tải ảnh chân dung của bạn" class="absolute -bottom-2 left-1/2 -translate-x-1/2 z-30 cursor-pointer inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 hover:bg-sky-50 text-sky-700 border border-sky-200 shadow-md text-xs font-medium transition-all hover:scale-105 whitespace-nowrap">
+                    <i data-lucide="camera" class="w-3.5 h-3.5 text-sky-500"></i>
+                    <span>Đổi ảnh cá nhân</span>
+                </label>
+                <input type="file" id="photo-upload" accept="image/*" class="hidden">
+            </div>
+
+            <!-- Graduate Name & Degree -->
+            <div class="mt-7 space-y-2">
+                <h1 class="font-script text-5xl sm:text-6xl shimmer-text py-1 drop-shadow-sm">
+                    Thanh Hằng
+                </h1>
+                <div class="inline-block px-4 py-1 rounded-full bg-sky-500/10 border border-sky-300/50">
+                    <p class="font-serif italic text-lg sm:text-xl font-bold text-sky-800 tracking-wide">
+                        Master of Industrial Engineering
+                    </p>
+                </div>
+                <p class="text-sm sm:text-base font-semibold text-sky-900/90 pt-1">
+                    Trường Đại học Bách khoa - ĐHQG-HCM
+                </p>
+            </div>
+        </section>
+
+        <!-- COUNTDOWN SECTION -->
+        <section class="crystal-card rhinestone-border rounded-3xl p-6 text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <i data-lucide="clock" class="w-4 h-4 text-sky-500"></i>
+                <h3 class="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-sky-800">
+                    Đếm ngược đến giờ G
+                </h3>
+                <i data-lucide="sparkles" class="w-4 h-4 text-sky-400"></i>
+            </div>
+
+            <div class="grid grid-cols-4 gap-2.5 sm:gap-4 max-w-md mx-auto">
+                <div class="bg-white/80 rounded-2xl p-3 sm:p-4 border border-sky-100 shadow-sm">
+                    <span id="cd-days" class="block text-2xl sm:text-3xl font-bold text-sky-700 tabular-nums">00</span>
+                    <span class="text-[11px] sm:text-xs font-medium text-slate-500 uppercase tracking-wider mt-1 block">Ngày</span>
+                </div>
+                <div class="bg-white/80 rounded-2xl p-3 sm:p-4 border border-sky-100 shadow-sm">
+                    <span id="cd-hours" class="block text-2xl sm:text-3xl font-bold text-sky-700 tabular-nums">00</span>
+                    <span class="text-[11px] sm:text-xs font-medium text-slate-500 uppercase tracking-wider mt-1 block">Giờ</span>
+                </div>
+                <div class="bg-white/80 rounded-2xl p-3 sm:p-4 border border-sky-100 shadow-sm">
+                    <span id="cd-minutes" class="block text-2xl sm:text-3xl font-bold text-sky-700 tabular-nums">00</span>
+                    <span class="text-[11px] sm:text-xs font-medium text-slate-500 uppercase tracking-wider mt-1 block">Phút</span>
+                </div>
+                <div class="bg-white/80 rounded-2xl p-3 sm:p-4 border border-sky-100 shadow-sm relative overflow-hidden">
+                    <span id="cd-seconds" class="block text-2xl sm:text-3xl font-bold text-sky-500 tabular-nums">00</span>
+                    <span class="text-[11px] sm:text-xs font-medium text-slate-500 uppercase tracking-wider mt-1 block">Giây</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENT DETAILS CARD -->
+        <section class="crystal-card rhinestone-border rounded-3xl p-6 sm:p-8 space-y-6">
+            <div class="text-center">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-sky-500">Save The Date</span>
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-sky-900 mt-0.5">Thông Tin Buổi Lễ</h3>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Time -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/75 border border-sky-100/90 transition hover:bg-white/95">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-400 to-blue-500 text-white flex items-center justify-center shrink-0 shadow-md">
+                        <i data-lucide="calendar-heart" class="w-5 h-5"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-sky-600">Thời gian</p>
+                        <p class="text-base sm:text-lg font-bold text-slate-800 mt-0.5">15h30 – 18h00</p>
+                        <p class="text-sm text-slate-600">Thứ Năm, ngày 26/11/2026</p>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/75 border border-sky-100/90 transition hover:bg-white/95">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-400 to-blue-500 text-white flex items-center justify-center shrink-0 shadow-md">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-sky-600">Địa điểm</p>
+                        <p class="text-base sm:text-lg font-bold text-slate-800 mt-0.5">Hội trường A5</p>
+                        <p class="text-sm text-slate-600 mb-2.5">Trường Đại học Bách khoa - ĐHQG-HCM</p>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://maps.app.goo.gl/kWgj4dCbZGYoTz4FA" target="_blank" rel="noopener noreferrer" 
+                               class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-sky-100 hover:bg-sky-200 text-sky-800 text-xs font-semibold transition">
+                                <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+                                <span>Xem Google Maps</span>
+                            </a>
+                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85+T%E1%BB%91t+Nghi%E1%BB%87p+Thanh+H%E1%BA%B1ng+-+Master+of+Industrial+Engineering&dates=20261126T083000Z/20261126T110000Z&details=Tham+d%E1%BB%B1+L%E1%BB%85+T%E1%BB%91t+Nghi%E1%BB%87p+c%E1%BB%A7a+Thanh+H%E1%BA%B1ng.+Li%C3%AAn+h%E1%BB%87:+0915048868&location=H%E1%BB%99i+tr%C6%B0%E1%BB%9Dng+A5,+Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+B%C3%A1ch+khoa+-+%C4%90HQG-HCM" 
+                               target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white hover:bg-sky-50 text-sky-700 border border-sky-200 text-xs font-semibold transition">
+                                <i data-lucide="calendar-plus" class="w-3.5 h-3.5"></i>
+                                <span>Lưu vào lịch</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/75 border border-sky-100/90 transition hover:bg-white/95">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-400 to-blue-500 text-white flex items-center justify-center shrink-0 shadow-md">
+                        <i data-lucide="phone-call" class="w-5 h-5"></i>
+                    </div>
+                    <div class="flex-1 flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-sky-600">Liên hệ Thanh Hằng</p>
+                            <p class="text-base sm:text-lg font-bold text-slate-800 mt-0.5 tracking-wide">0915 048 868</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <a href="tel:0915048868" class="px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold shadow-sm transition">
+                                Gọi ngay
+                            </a>
+                            <button type="button" onclick="copyText('0915048868', 'Đã sao chép số điện thoại 0915048868!')" 
+                                    class="p-2 rounded-xl bg-white hover:bg-sky-50 text-sky-700 border border-sky-200 transition" title="Sao chép số điện thoại">
+                                <i data-lucide="copy" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE RSVP SECTION -->
+        <section id="rsvp-section" class="crystal-card rhinestone-border rounded-3xl p-6 sm:p-8">
+            <div class="text-center max-w-md mx-auto mb-6">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-sky-100 text-sky-600 mb-3">
+                    <i data-lucide="sparkles" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-sky-900">
+                    Xác Nhận Tham Dự
+                </h3>
+                <p class="text-sm text-slate-600 mt-1.5">
+                    Sự hiện diện của bạn là niềm hạnh phúc lớn nhất của Hằng trong ngày đặc biệt này!
+                </p>
+            </div>
+
+            <!-- Step 1: Primary Choice Buttons -->
+            <div id="rsvp-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <button type="button" id="btn-attend-yes" 
+                        class="btn-sparkle text-white font-semibold py-4 px-5 rounded-2xl flex items-center justify-center gap-2.5 text-sm sm:text-base cursor-pointer">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 shrink-0"></i>
+                    <span>Có, mình sẽ tham dự!</span>
+                </button>
+
+                <button type="button" id="btn-attend-no" 
+                        class="bg-white/85 hover:bg-white text-sky-800 border border-sky-200/90 font-semibold py-4 px-5 rounded-2xl flex items-center justify-center gap-2.5 text-sm sm:text-base shadow-sm hover:shadow transition cursor-pointer">
+                    <i data-lucide="message-square-heart" class="w-5 h-5 text-sky-500 shrink-0"></i>
+                    <span>Tiếc quá, mình không tham dự được</span>
+                </button>
+            </div>
+
+            <!-- Step 2A: YES CONFIRMATION TICKET -->
+            <div id="rsvp-yes-card" class="hidden mt-6 fade-slide-up">
+                <div class="rounded-2xl bg-gradient-to-br from-white via-sky-50/90 to-blue-50/90 border-2 border-sky-200 p-5 sm:p-6 shadow-lg relative overflow-hidden">
+                    <!-- Decorative Sparkles -->
+                    <div class="flex items-center justify-between border-b border-dashed border-sky-200 pb-4 mb-4">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-sky-700">Xác nhận tham dự thành công</span>
+                        </div>
+                        <button type="button" onclick="resetRsvp()" class="text-xs text-slate-400 hover:text-sky-600 underline">
+                            Chọn lại
+                        </button>
+                    </div>
+
+                    <!-- Highlighted Quote -->
+                    <div class="bg-white/90 rounded-2xl p-4 border border-sky-100 text-center mb-5 shadow-sm">
+                        <i data-lucide="sparkles" class="w-5 h-5 text-sky-400 mx-auto mb-1.5"></i>
+                        <p class="font-serif italic text-lg sm:text-xl font-bold text-sky-900 leading-snug">
+                            "Very excited if you and me can celebrate my grateful moment in age of 24"
+                        </p>
+                    </div>
+
+                    <!-- Confirmed Details Summary -->
+                    <div class="space-y-2.5 text-sm text-slate-700 bg-white/70 rounded-xl p-4 border border-white">
+                        <div class="flex justify-between gap-2">
+                            <span class="text-slate-500">Khách mời:</span>
+                            <span id="ticket-guest-name" class="font-bold text-sky-900 text-right">Bạn thân mến</span>
+                        </div>
+                        <div class="flex justify-between gap-2">
+                            <span class="text-slate-500">Thời gian:</span>
+                            <span class="font-semibold text-slate-800 text-right">15h30 - 18h00 | Thứ Năm, 26/11/2026</span>
+                        </div>
+                        <div class="flex justify-between gap-2">
+                            <span class="text-slate-500">Địa điểm:</span>
+                            <span class="font-semibold text-slate-800 text-right">Hội trường A5 - ĐH Bách khoa</span>
+                        </div>
+                        <div class="flex justify-between gap-2">
+                            <span class="text-slate-500">Liên hệ:</span>
+                            <span class="font-semibold text-sky-700 text-right">0915 048 868</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+                        <a href="https://maps.app.goo.gl/kWgj4dCbZGYoTz4FA" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-700 hover:text-sky-900">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                            <span>Mở bản đồ Hội trường A5</span>
+                        </a>
+                        <button type="button" onclick="openWishBoxFromYes()" class="text-xs font-semibold text-sky-600 hover:text-sky-800 flex items-center gap-1">
+                            <i data-lucide="pen-line" class="w-3.5 h-3.5"></i>
+                            <span>Gửi thêm lời chúc cho Hằng</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2B: CANNOT ATTEND -> SEND MESSAGE FORM -->
+            <div id="rsvp-no-card" class="hidden mt-6 fade-slide-up">
+                <div class="rounded-2xl bg-white/85 border border-sky-200 p-5 sm:p-6 shadow-md">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-bold text-sky-900 flex items-center gap-2 text-base">
+                            <i data-lucide="heart-handshake" class="w-5 h-5 text-sky-500"></i>
+                            <span id="wish-form-title">Gửi lời nhắn & lời chúc đến Thanh Hằng</span>
+                        </h4>
+                        <button type="button" onclick="resetRsvp()" class="text-xs text-slate-400 hover:text-sky-600 underline">
+                            Quay lại
+                        </button>
+                    </div>
+                    <p id="wish-form-subtitle" class="text-xs sm:text-sm text-slate-600 mb-4">
+                        Dù không thể có mặt trực tiếp, lời chúc từ xa của bạn vẫn là món quà tinh thần tuyệt vời dành cho Hằng!
+                    </p>
+
+                    <form id="wish-form" class="space-y-3.5">
+                        <div>
+                            <label for="sender-name" class="block text-xs font-semibold text-sky-800 mb-1">Tên của bạn</label>
+                            <input type="text" id="sender-name" required placeholder="Nhập tên của bạn..."
+                                   class="w-full px-4 py-2.5 rounded-xl bg-sky-50/60 border border-sky-200 focus:border-sky-400 focus:bg-white focus:outline-none text-sm text-slate-800">
+                        </div>
+                        <div>
+                            <label for="sender-message" class="block text-xs font-semibold text-sky-800 mb-1">Lời nhắn gửi Thanh Hằng</label>
+                            <textarea id="sender-message" rows="3" required placeholder="Chúc mừng Tân Thạc sĩ Thanh Hằng tuổi 24 thật rực rỡ..."
+                                      class="w-full px-4 py-2.5 rounded-xl bg-sky-50/60 border border-sky-200 focus:border-sky-400 focus:bg-white focus:outline-none text-sm text-slate-800"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-sparkle text-white font-semibold py-3 px-5 rounded-xl text-sm flex items-center justify-center gap-2 cursor-pointer">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Gửi lời chúc riêng tư</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER & PERSONALIZED LINK GENERATOR FOR THANH HẰNG -->
+        <footer class="text-center pb-8 space-y-4">
+            <p class="text-xs text-sky-800/70">
+                Made with ✨ for <strong class="font-semibold">Thanh Hằng</strong> • Class of 2026
+            </p>
+
+            <!-- Toggleable Link Generator Tool -->
+            <div>
+                <button type="button" id="toggle-link-gen" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/70 hover:bg-white text-sky-700 border border-sky-200/80 text-xs font-medium shadow-sm transition">
+                    <i data-lucide="link" class="w-3.5 h-3.5"></i>
+                    <span>Tạo link mời theo tên khách (Dành cho Hằng)</span>
+                </button>
+
+                <div id="link-gen-panel" class="hidden mt-3 crystal-card rounded-2xl p-4 max-w-md mx-auto text-left fade-slide-up">
+                    <p class="text-xs font-semibold text-sky-900 mb-2">Nhập tên bạn bè để tạo đường link thiệp riêng:</p>
+                    <div class="flex gap-2">
+                        <input type="text" id="custom-guest-input" placeholder="Ví dụ: Minh Anh, Team Bách Khoa..."
+                               class="flex-1 px-3.5 py-2 rounded-xl bg-white border border-sky-200 text-xs sm:text-sm focus:outline-none focus:border-sky-400">
+                        <button type="button" id="copy-custom-link-btn" class="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold shrink-0 transition">
+                            Copy Link
+                        </button>
+                    </div>
+                    <p id="preview-link-text" class="text-[11px] text-slate-500 mt-2 break-all"></p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. GENERATE FLOATING BLINK-BLINK SPARKLES
+        function initSparkles() {
+            const layer = document.getElementById('sparkle-layer');
+            const sparkleCount = 26;
+            for (let i = 0; i < sparkleCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'sparkle-star';
+                const size = Math.floor(Math.random() * 14) + 8; // 8px to 22px
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+                star.style.setProperty('--delay', (Math.random() * 4) + 's');
+                star.style.color = i % 2 === 0 ? '#ffffff' : '#7dd3fc';
+                star.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z"/></svg>`;
+                layer.appendChild(star);
+            }
+        }
+        initSparkles();
+
+        // 2. TOAST HELPER (Replaces alert)
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = msg;
+            toast.classList.remove('hidden');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3200);
+        }
+
+        // 3. CLIPBOARD HELPER (Using execCommand fallback for iframe safety)
+        function copyText(text, successMessage) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            tempInput.style.position = 'fixed';
+            tempInput.style.opacity = '0';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast(successMessage || 'Đã sao chép!');
+            } catch (err) {
+                showToast('Không thể sao chép tự động, bạn vui lòng copy thủ công nhé.');
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // 4. PERSONALIZED GUEST NAME FROM URL PARAMETER (?guest=...)
+        const urlParams = new URLSearchParams(window.location.search);
+        const rawGuest = urlParams.get('guest') || urlParams.get('to') || urlParams.get('name');
+        const guestName = rawGuest && rawGuest.trim() !== '' ? rawGuest.trim() : 'Bạn thân mến';
+
+        document.getElementById('guest-display-name').textContent = guestName;
+        document.getElementById('ticket-guest-name').textContent = guestName;
+        if (guestName !== 'Bạn thân mến') {
+            document.getElementById('sender-name').value = guestName;
+        }
+
+        // 5. PORTRAIT PHOTO UPLOAD + LOCALSTORAGE PERSISTENCE
+        const photoUploadInput = document.getElementById('photo-upload');
+        const graduatePhotoImg = document.getElementById('graduate-photo');
+
+        const savedPhoto = localStorage.getItem('thanhhang_grad_photo');
+        if (savedPhoto) {
+            graduatePhotoImg.src = savedPhoto;
+        }
+
+        photoUploadInput.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const dataUrl = event.target.result;
+                graduatePhotoImg.src = dataUrl;
+                try {
+                    localStorage.setItem('thanhhang_grad_photo', dataUrl);
+                } catch (err) {
+                    // Ignore quota exceeded if image is huge
+                }
+                showToast('Đã cập nhật ảnh chân dung lấp lánh!');
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // 6. COUNTDOWN TIMER TO NOV 26, 2026 15:30:00 (GMT+7)
+        const targetDate = new Date('2026-11-26T15:30:00+07:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance <= 0) {
+                document.getElementById('cd-days').textContent = '00';
+                document.getElementById('cd-hours').textContent = '00';
+                document.getElementById('cd-minutes').textContent = '00';
+                document.getElementById('cd-seconds').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+            document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // 7. INTERACTIVE RSVP FLOW
+        const choicesBox = document.getElementById('rsvp-choices');
+        const yesCard = document.getElementById('rsvp-yes-card');
+        const noCard = document.getElementById('rsvp-no-card');
+
+        document.getElementById('btn-attend-yes').addEventListener('click', () => {
+            choicesBox.classList.add('hidden');
+            noCard.classList.add('hidden');
+            yesCard.classList.remove('hidden');
+
+            // Trigger celebratory ice-blue & silver confetti
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 70,
+                    spread: 70,
+                    origin: { y: 0.65 },
+                    colors: ['#38BDF8', '#BAE6FD', '#FFFFFF', '#0284C7', '#E0F2FE']
+                });
+            }
+            showToast('Yay! Hẹn gặp bạn tại Hội trường A5 nhé ✨');
+        });
+
+        document.getElementById('btn-attend-no').addEventListener('click', () => {
+            choicesBox.classList.add('hidden');
+            yesCard.classList.add('hidden');
+            document.getElementById('wish-form-title').textContent = 'Gửi lời nhắn & lời chúc đến Thanh Hằng';
+            document.getElementById('wish-form-subtitle').textContent = 'Dù không thể có mặt trực tiếp, lời chúc từ xa của bạn vẫn là món quà tinh thần tuyệt vời dành cho Hằng!';
+            noCard.classList.remove('hidden');
+            document.getElementById('sender-message').focus();
+        });
+
+        function openWishBoxFromYes() {
+            yesCard.classList.add('hidden');
+            document.getElementById('wish-form-title').textContent = 'Gửi lời chúc mừng tốt nghiệp';
+            document.getElementById('wish-form-subtitle').textContent = 'Ghi lại vài dòng kỷ niệm cùng Tân Thạc sĩ Thanh Hằng nhé!';
+            noCard.classList.remove('hidden');
+            document.getElementById('sender-message').focus();
+        }
+
+        function resetRsvp() {
+            yesCard.classList.add('hidden');
+            noCard.classList.add('hidden');
+            choicesBox.classList.remove('hidden');
+        }
+
+        // 8. PRIVATE WISH SUBMISSION (NO PUBLIC GUESTBOOK WALL)
+        document.getElementById('wish-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const msgVal = document.getElementById('sender-message').value.trim();
+            if (!msgVal) return;
+
+            document.getElementById('sender-message').value = '';
+            showToast('Cảm ơn bạn! Lời nhắn đã được gửi riêng tư đến Thanh Hằng 💙');
+            resetRsvp();
+        });
+
+        // 9. CUSTOM LINK GENERATOR FOR THANH HẰNG
+        const toggleLinkGenBtn = document.getElementById('toggle-link-gen');
+        const linkGenPanel = document.getElementById('link-gen-panel');
+        const customGuestInput = document.getElementById('custom-guest-input');
+        const previewLinkText = document.getElementById('preview-link-text');
+
+        function buildCustomUrl(name) {
+            const baseUrl = window.location.origin + window.location.pathname;
+            if (!name || !name.trim()) return baseUrl;
+            return `${baseUrl}?guest=${encodeURIComponent(name.trim())}`;
+        }
+
+        toggleLinkGenBtn.addEventListener('click', () => {
+            linkGenPanel.classList.toggle('hidden');
+            previewLinkText.textContent = buildCustomUrl(customGuestInput.value);
+        });
+
+        customGuestInput.addEventListener('input', () => {
+            previewLinkText.textContent = buildCustomUrl(customGuestInput.value);
+        });
+
+        document.getElementById('copy-custom-link-btn').addEventListener('click', () => {
+            const generatedUrl = buildCustomUrl(customGuestInput.value);
+            copyText(generatedUrl, 'Đã sao chép đường link thiệp mời riêng!');
+        });
+    </script>
+</body>
+</html>
