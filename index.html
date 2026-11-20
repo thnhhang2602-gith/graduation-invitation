@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graduation Invitation | Thanh Hằng - Master of Industrial Engineering</title>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Be Vietnam Pro, Cormorant Garamond & Great Vibes -->
+    
+    <!-- Google Fonts: Be Vietnam Pro, Cormorant Garamond, Great Vibes & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Canvas Confetti for celebratory sparkle burst -->
+    
+    <!-- Canvas Confetti for celebratory sparkles -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
@@ -23,6 +27,7 @@
                         sans: ['"Be Vietnam Pro"', 'sans-serif'],
                         serif: ['"Cormorant Garamond"', 'serif'],
                         script: ['"Great Vibes"', 'cursive'],
+                        montserrat: ['"Montserrat"', 'sans-serif'],
                     },
                     colors: {
                         ice: {
@@ -67,7 +72,7 @@
 
         /* Glassmorphism Crystal Card */
         .crystal-card {
-            background: rgba(255, 255, 255, 0.72);
+            background: rgba(255, 255, 255, 0.76);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             border: 1.5px solid rgba(255, 255, 255, 0.92);
@@ -185,27 +190,26 @@
             to { background-position: 200% center; }
         }
 
-        /* Smooth Reveal */
         .fade-slide-up {
-            animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: fadeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         @keyframes fadeSlideUp {
-            from { opacity: 0; transform: translateY(18px); }
+            from { opacity: 0; transform: translateY(16px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body class="min-h-screen antialiased selection:bg-sky-200 selection:text-sky-900 relative">
 
-    <!-- Ambient Pastel Blue Orbs -->
+    <!-- Ambient Background Orbs -->
     <div class="bg-orb w-80 h-80 bg-sky-200/60 top-[-5%] left-[-10%]"></div>
     <div class="bg-orb w-96 h-96 bg-blue-200/50 bottom-[10%] right-[-10%]" style="animation-delay: -5s;"></div>
     <div class="bg-orb w-72 h-72 bg-white/80 top-[40%] left-[20%]" style="animation-delay: -2s;"></div>
 
-    <!-- Container for Floating Blink-Blink Sparkles -->
+    <!-- Sparkle Animation Layer -->
     <div id="sparkle-layer" aria-hidden="true"></div>
 
-    <!-- Custom Toast Notification (No alert() used) -->
+    <!-- Toast Notification -->
     <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 hidden transition-all duration-300">
         <div class="crystal-card px-5 py-3 rounded-full flex items-center gap-2.5 shadow-xl border border-white text-sky-900 text-sm font-medium">
             <i data-lucide="sparkles" class="w-4 h-4 text-sky-500 shrink-0"></i>
@@ -213,8 +217,8 @@
         </div>
     </div>
 
-    <!-- Main Content Wrapper -->
-    <main class="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8">
+    <!-- MAIN INVITATION CONTAINER -->
+    <main id="main-invitation" class="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8">
 
         <!-- HERO CARD -->
         <section class="crystal-card rhinestone-border rounded-[2rem] p-6 sm:p-10 text-center relative overflow-hidden">
@@ -226,14 +230,14 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
             </div>
 
-            <!-- Top Badge -->
+            <!-- Header Badge -->
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-sky-200/80 shadow-sm mb-5">
                 <i data-lucide="graduation-cap" class="w-4 h-4 text-sky-600"></i>
                 <span class="text-xs font-semibold tracking-[0.2em] uppercase text-sky-700">Graduation Ceremony</span>
                 <i data-lucide="sparkles" class="w-3.5 h-3.5 text-sky-400"></i>
             </div>
 
-            <!-- Personalized Guest Salutation -->
+            <!-- Personalized Guest Name -->
             <div class="mb-6">
                 <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-sky-600/80 font-medium mb-1">
                     Trân trọng kính mời
@@ -243,48 +247,43 @@
                         Bạn thân mến
                     </h2>
                 </div>
-                <p class="text-sm text-slate-600 mt-2.5 max-w-md mx-auto leading-relaxed">
+                
+                <!-- Customized Typography using Montserrat 11px -->
+                <p class="font-montserrat text-[11px] leading-relaxed text-slate-600 tracking-wide uppercase font-medium mt-3.5 max-w-md mx-auto">
                     Đến chung vui và lưu giữ khoảnh khắc cột mốc đáng nhớ trong Lễ Tốt Nghiệp của
                 </p>
             </div>
 
-            <!-- Rhinestone Portrait Frame with Upload Capability -->
-            <div class="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto my-6 group">
-                <!-- Rotating Glitter Halo -->
+            <!-- EXPANDED FIXED AVATAR FRAME (Size ~180px - 190px) -->
+            <div class="relative w-44 h-44 sm:w-48 sm:h-48 mx-auto my-6 group">
+                <!-- Outer Rhinestone Shimmer Halo -->
                 <div class="rhinestone-ring absolute inset-0 rounded-full p-[5px]">
                     <div class="w-full h-full rounded-full bg-sky-50"></div>
                 </div>
 
-                <!-- Sparkle Gems placed around circle -->
+                <!-- Sparkle Accents on Circle Edge -->
                 <span class="absolute -top-2 left-1/2 -translate-x-1/2 text-white drop-shadow-[0_0_8px_rgba(56,189,248,0.9)] z-20">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/></svg>
                 </span>
                 <span class="absolute bottom-3 -left-1 text-sky-200 drop-shadow-[0_0_6px_rgba(255,255,255,1)] z-20">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/></svg>
-                </span>
-                <span class="absolute top-6 -right-1 text-white drop-shadow-[0_0_6px_rgba(56,189,248,1)] z-20">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/></svg>
                 </span>
+                <span class="absolute top-6 -right-1 text-white drop-shadow-[0_0_6px_rgba(56,189,248,1)] z-20">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/></svg>
+                </span>
 
-                <!-- Inner Portrait Container -->
+                <!-- Fixed Portrait Image (No upload button) -->
                 <div class="absolute inset-[7px] rounded-full overflow-hidden bg-gradient-to-b from-sky-100 to-blue-50 border-2 border-white shadow-inner z-10 flex items-center justify-center">
-                    <img id="avatarImg" 
-                         src="./avatar.jpg"
-                         alt="Thanh Hằng Graduation Portrait" 
+                    <img id="graduate-photo" 
+                         src="./avatar.jpg" 
+                         alt="Thanh Hằng - Master of Industrial Engineering" 
                          class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                         onerror="this.src='https://placehold.co/400x400/e0f2fe/0369a1?text=Thanh+Hang'">
+                         onerror="this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80'">
                 </div>
-
-                <!-- Upload / Change Photo Button -->
-                <label for="photo-upload" title="Tải ảnh chân dung của bạn" class="absolute -bottom-2 left-1/2 -translate-x-1/2 z-30 cursor-pointer inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 hover:bg-sky-50 text-sky-700 border border-sky-200 shadow-md text-xs font-medium transition-all hover:scale-105 whitespace-nowrap">
-                    <i data-lucide="camera" class="w-3.5 h-3.5 text-sky-500"></i>
-                    <span>Đổi ảnh cá nhân</span>
-                </label>
-                <input type="file" id="photo-upload" accept="image/*" class="hidden">
             </div>
 
-            <!-- Graduate Name & Degree -->
-            <div class="mt-7 space-y-2">
+            <!-- Graduate Name & Credentials -->
+            <div class="mt-6 space-y-2">
                 <h1 class="font-script text-5xl sm:text-6xl shimmer-text py-1 drop-shadow-sm">
                     Thanh Hằng
                 </h1>
@@ -299,7 +298,7 @@
             </div>
         </section>
 
-        <!-- COUNTDOWN SECTION -->
+        <!-- COUNTDOWN TIMER SECTION -->
         <section class="crystal-card rhinestone-border rounded-3xl p-6 text-center">
             <div class="flex items-center justify-center gap-2 mb-4">
                 <i data-lucide="clock" class="w-4 h-4 text-sky-500"></i>
@@ -343,7 +342,7 @@
                         <i data-lucide="calendar-heart" class="w-5 h-5"></i>
                     </div>
                     <div class="flex-1">
-                        <p class="text-xs font-semibold uppercase tracking-wider text-sky-600">Thời gian</p>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-sky-600">Thời gian đón khách & chụp ảnh</p>
                         <p class="text-base sm:text-lg font-bold text-slate-800 mt-0.5">15h30 – 18h00</p>
                         <p class="text-sm text-slate-600">Thứ Năm, ngày 26/11/2026</p>
                     </div>
@@ -368,7 +367,7 @@
                                target="_blank" rel="noopener noreferrer"
                                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white hover:bg-sky-50 text-sky-700 border border-sky-200 text-xs font-semibold transition">
                                 <i data-lucide="calendar-plus" class="w-3.5 h-3.5"></i>
-                                <span>Lưu vào lịch</span>
+                                <span>Lưu vào Google Calendar</span>
                             </a>
                         </div>
                     </div>
@@ -386,9 +385,9 @@
                         </div>
                         <div class="flex items-center gap-2">
                             <a href="tel:0915048868" class="px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold shadow-sm transition">
-                                Gọi ngay
+                                Gọi điện
                             </a>
-                            <button type="button" onclick="copyText('0915048868', 'Đã sao chép số điện thoại 0915048868!')" 
+                            <button type="button" onclick="copyText('0915048868', 'Đã sao chép SĐT 0915048868!')" 
                                     class="p-2 rounded-xl bg-white hover:bg-sky-50 text-sky-700 border border-sky-200 transition" title="Sao chép số điện thoại">
                                 <i data-lucide="copy" class="w-4 h-4"></i>
                             </button>
@@ -398,7 +397,7 @@
             </div>
         </section>
 
-        <!-- INTERACTIVE RSVP SECTION -->
+        <!-- INTERACTIVE RSVP SECTION (AUTOMATIC GOOGLE SHEETS SYNC) -->
         <section id="rsvp-section" class="crystal-card rhinestone-border rounded-3xl p-6 sm:p-8">
             <div class="text-center max-w-md mx-auto mb-6">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-sky-100 text-sky-600 mb-3">
@@ -408,11 +407,11 @@
                     Xác Nhận Tham Dự
                 </h3>
                 <p class="text-sm text-slate-600 mt-1.5">
-                    Sự hiện diện của bạn là niềm hạnh phúc lớn nhất của Hằng trong ngày đặc biệt này!
+                    Sự hiện diện của bạn là niềm hạnh phúc lớn nhất của Hằng trong ngày mừng bằng tốt nghiệp!
                 </p>
             </div>
 
-            <!-- Step 1: Primary Choice Buttons -->
+            <!-- Choice Buttons -->
             <div id="rsvp-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <button type="button" id="btn-attend-yes" 
                         class="btn-sparkle text-white font-semibold py-4 px-5 rounded-2xl flex items-center justify-center gap-2.5 text-sm sm:text-base cursor-pointer">
@@ -427,21 +426,20 @@
                 </button>
             </div>
 
-            <!-- Step 2A: YES CONFIRMATION TICKET -->
+            <!-- STEP 2A: YES CONFIRMATION TICKET -->
             <div id="rsvp-yes-card" class="hidden mt-6 fade-slide-up">
                 <div class="rounded-2xl bg-gradient-to-br from-white via-sky-50/90 to-blue-50/90 border-2 border-sky-200 p-5 sm:p-6 shadow-lg relative overflow-hidden">
-                    <!-- Decorative Sparkles -->
                     <div class="flex items-center justify-between border-b border-dashed border-sky-200 pb-4 mb-4">
                         <div class="flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
                             <span class="text-xs font-bold uppercase tracking-widest text-sky-700">Xác nhận tham dự thành công</span>
                         </div>
                         <button type="button" onclick="resetRsvp()" class="text-xs text-slate-400 hover:text-sky-600 underline">
-                            Chọn lại
+                            Thay đổi
                         </button>
                     </div>
 
-                    <!-- Highlighted Quote -->
+                    <!-- Highlight Quote -->
                     <div class="bg-white/90 rounded-2xl p-4 border border-sky-100 text-center mb-5 shadow-sm">
                         <i data-lucide="sparkles" class="w-5 h-5 text-sky-400 mx-auto mb-1.5"></i>
                         <p class="font-serif italic text-lg sm:text-xl font-bold text-sky-900 leading-snug">
@@ -449,65 +447,61 @@
                         </p>
                     </div>
 
-                    <!-- Confirmed Details Summary -->
-                    <div class="space-y-2.5 text-sm text-slate-700 bg-white/70 rounded-xl p-4 border border-white">
+                    <!-- Ticket Details -->
+                    <div class="space-y-2 text-sm text-slate-700 bg-white/70 rounded-xl p-4 border border-white mb-4">
                         <div class="flex justify-between gap-2">
                             <span class="text-slate-500">Khách mời:</span>
                             <span id="ticket-guest-name" class="font-bold text-sky-900 text-right">Bạn thân mến</span>
                         </div>
                         <div class="flex justify-between gap-2">
                             <span class="text-slate-500">Thời gian:</span>
-                            <span class="font-semibold text-slate-800 text-right">15h30 - 18h00 | Thứ Năm, 26/11/2026</span>
+                            <span class="font-semibold text-slate-800 text-right">15h30 - 18h00 | 26/11/2026</span>
                         </div>
                         <div class="flex justify-between gap-2">
                             <span class="text-slate-500">Địa điểm:</span>
                             <span class="font-semibold text-slate-800 text-right">Hội trường A5 - ĐH Bách khoa</span>
                         </div>
-                        <div class="flex justify-between gap-2">
-                            <span class="text-slate-500">Liên hệ:</span>
-                            <span class="font-semibold text-sky-700 text-right">0915 048 868</span>
-                        </div>
                     </div>
 
-                    <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
-                        <a href="https://maps.app.goo.gl/kWgj4dCbZGYoTz4FA" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-700 hover:text-sky-900">
-                            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
-                            <span>Mở bản đồ Hội trường A5</span>
-                        </a>
-                        <button type="button" onclick="openWishBoxFromYes()" class="text-xs font-semibold text-sky-600 hover:text-sky-800 flex items-center gap-1">
-                            <i data-lucide="pen-line" class="w-3.5 h-3.5"></i>
-                            <span>Gửi thêm lời chúc cho Hằng</span>
+                    <!-- Optional Wish Note inside YES card -->
+                    <form id="yes-wish-form" class="mt-4 pt-4 border-t border-sky-100 space-y-3">
+                        <label for="yes-message-input" class="block text-xs font-semibold text-sky-800">
+                            Gửi thêm lời chúc cho Hằng (Tùy chọn):
+                        </label>
+                        <textarea id="yes-message-input" rows="2" placeholder="Ví dụ: Chúc mừng Hằng nhận bằng Thạc sĩ nhé!..."
+                                  class="w-full px-3.5 py-2 rounded-xl bg-white border border-sky-200 text-xs focus:outline-none focus:border-sky-400"></textarea>
+                        <button type="submit" class="w-full py-2 px-4 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold transition">
+                            Gửi lời chúc mừng
                         </button>
-                    </div>
+                    </form>
                 </div>
             </div>
 
-            <!-- Step 2B: CANNOT ATTEND -> SEND MESSAGE FORM -->
+            <!-- STEP 2B: ABSENT MESSAGE FORM -->
             <div id="rsvp-no-card" class="hidden mt-6 fade-slide-up">
                 <div class="rounded-2xl bg-white/85 border border-sky-200 p-5 sm:p-6 shadow-md">
                     <div class="flex items-center justify-between mb-3">
                         <h4 class="font-bold text-sky-900 flex items-center gap-2 text-base">
                             <i data-lucide="heart-handshake" class="w-5 h-5 text-sky-500"></i>
-                            <span id="wish-form-title">Gửi lời nhắn & lời chúc đến Thanh Hằng</span>
+                            <span>Gửi lời nhắn đến Thanh Hằng</span>
                         </h4>
                         <button type="button" onclick="resetRsvp()" class="text-xs text-slate-400 hover:text-sky-600 underline">
                             Quay lại
                         </button>
                     </div>
-                    <p id="wish-form-subtitle" class="text-xs sm:text-sm text-slate-600 mb-4">
-                        Dù không thể có mặt trực tiếp, lời chúc từ xa của bạn vẫn là món quà tinh thần tuyệt vời dành cho Hằng!
+                    <p class="text-xs sm:text-sm text-slate-600 mb-4">
+                        Dù không thể tới dự, lời chúc từ xa của bạn luôn là động viên vô giá dành cho Hằng!
                     </p>
 
-                    <form id="wish-form" class="space-y-3.5">
+                    <form id="no-wish-form" class="space-y-3.5">
                         <div>
-                            <label for="sender-name" class="block text-xs font-semibold text-sky-800 mb-1">Tên của bạn</label>
-                            <input type="text" id="sender-name" required placeholder="Nhập tên của bạn..."
+                            <label for="no-sender-name" class="block text-xs font-semibold text-sky-800 mb-1">Tên của bạn</label>
+                            <input type="text" id="no-sender-name" required placeholder="Nhập tên của bạn..."
                                    class="w-full px-4 py-2.5 rounded-xl bg-sky-50/60 border border-sky-200 focus:border-sky-400 focus:bg-white focus:outline-none text-sm text-slate-800">
                         </div>
                         <div>
-                            <label for="sender-message" class="block text-xs font-semibold text-sky-800 mb-1">Lời nhắn gửi Thanh Hằng</label>
-                            <textarea id="sender-message" rows="3" required placeholder="Chúc mừng Tân Thạc sĩ Thanh Hằng tuổi 24 thật rực rỡ..."
+                            <label for="no-sender-message" class="block text-xs font-semibold text-sky-800 mb-1">Lời nhắn gửi Thanh Hằng</label>
+                            <textarea id="no-sender-message" rows="3" required placeholder="Chúc Hằng luôn rực rỡ và thành công trên con đường phía trước..."
                                       class="w-full px-4 py-2.5 rounded-xl bg-sky-50/60 border border-sky-200 focus:border-sky-400 focus:bg-white focus:outline-none text-sm text-slate-800"></textarea>
                         </div>
                         <button type="submit" class="w-full btn-sparkle text-white font-semibold py-3 px-5 rounded-xl text-sm flex items-center justify-center gap-2 cursor-pointer">
@@ -519,36 +513,123 @@
             </div>
         </section>
 
-        <!-- FOOTER & PERSONALIZED LINK GENERATOR FOR THANH HẰNG -->
+        <!-- FOOTER & CONDITIONAL LINK GENERATOR TOOL -->
         <footer class="text-center pb-8 space-y-4">
             <p class="text-xs text-sky-800/70">
                 Made with ✨ for <strong class="font-semibold">Thanh Hằng</strong> • Class of 2026
             </p>
 
-            <!-- Toggleable Link Generator Tool -->
-            <div>
-                <button type="button" id="toggle-link-gen" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/70 hover:bg-white text-sky-700 border border-sky-200/80 text-xs font-medium shadow-sm transition">
+            <!-- THIS TOOL IS HIDDEN WHEN GUEST OPENS VIA SHARED LINK (?guest=...) -->
+            <div id="link-gen-container" class="hidden">
+                <button type="button" id="toggle-link-gen" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/80 hover:bg-white text-sky-700 border border-sky-200 text-xs font-medium shadow-sm transition">
                     <i data-lucide="link" class="w-3.5 h-3.5"></i>
                     <span>Tạo link mời theo tên khách (Dành cho Hằng)</span>
                 </button>
 
                 <div id="link-gen-panel" class="hidden mt-3 crystal-card rounded-2xl p-4 max-w-md mx-auto text-left fade-slide-up">
-                    <p class="text-xs font-semibold text-sky-900 mb-2">Nhập tên bạn bè để tạo đường link thiệp riêng:</p>
-                    <div class="flex gap-2">
-                        <input type="text" id="custom-guest-input" placeholder="Ví dụ: Minh Anh, Team Bách Khoa..."
+                    <p class="text-xs font-semibold text-sky-900 mb-1.5">Tạo đường link riêng gắn tên bạn bè:</p>
+                    <div class="flex gap-2 mb-2">
+                        <input type="text" id="custom-guest-input" placeholder="Ví dụ: Minh Anh, Anh Tuấn..."
                                class="flex-1 px-3.5 py-2 rounded-xl bg-white border border-sky-200 text-xs sm:text-sm focus:outline-none focus:border-sky-400">
-                        <button type="button" id="copy-custom-link-btn" class="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold shrink-0 transition">
-                            Copy Link
+                        <button type="button" id="copy-custom-link-btn" class="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold shrink-0 transition flex items-center gap-1">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>Copy Link</span>
                         </button>
                     </div>
-                    <p id="preview-link-text" class="text-[11px] text-slate-500 mt-2 break-all"></p>
+                    <p id="preview-link-text" class="text-[11px] text-slate-500 break-all bg-white/60 p-2 rounded-lg border border-sky-100"></p>
                 </div>
             </div>
-        </footer>
 
+            <!-- DISCREET PRIVATE ADMIN DASHBOARD LOCK ICON -->
+            <div class="pt-2">
+                <button type="button" onclick="promptAdminLogin()" title="Xem sổ lưu bút riêng tư" 
+                        class="text-sky-400/40 hover:text-sky-600 transition p-1 text-xs inline-flex items-center gap-1">
+                    <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                    <span class="sr-only">Admin Private</span>
+                </button>
+            </div>
+        </footer>
     </main>
 
+    <!-- PRIVATE ADMIN DASHBOARD (MATCHES THE CRYSTAL BLINK-BLINK THEME) -->
+    <section id="admin-view" class="hidden min-h-screen max-w-4xl mx-auto px-4 py-8 sm:py-12 relative z-20">
+        <div class="crystal-card rhinestone-border rounded-[2rem] p-6 sm:p-8 space-y-6">
+            <!-- Admin Header -->
+            <div class="flex flex-wrap items-center justify-between gap-4 border-b border-sky-100 pb-5">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-semibold mb-1">
+                        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                        <span>Quyền Riêng Tư — Thanh Hằng</span>
+                    </div>
+                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-sky-900">Sổ Lưu Bút & Danh Sách Phản Hồi</h2>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button type="button" onclick="reloadAdminData()" class="px-3.5 py-2 rounded-xl bg-white hover:bg-sky-50 text-sky-700 border border-sky-200 text-xs font-semibold transition flex items-center gap-1.5">
+                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                        <span>Tải dữ liệu mới</span>
+                    </button>
+                    <button type="button" onclick="closeAdminView()" class="px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold transition flex items-center gap-1.5">
+                        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                        <span>Về Trang Thiệp</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Overview Badges -->
+            <div class="grid grid-cols-3 gap-3">
+                <div class="bg-white/80 p-4 rounded-2xl border border-sky-100 text-center">
+                    <span id="stat-total" class="block text-2xl sm:text-3xl font-bold text-sky-800">0</span>
+                    <span class="text-xs text-slate-500 font-medium">Tổng lượt phản hồi</span>
+                </div>
+                <div class="bg-emerald-50/80 p-4 rounded-2xl border border-emerald-100 text-center">
+                    <span id="stat-yes" class="block text-2xl sm:text-3xl font-bold text-emerald-600">0</span>
+                    <span class="text-xs text-emerald-700 font-medium">Sẽ tham dự</span>
+                </div>
+                <div class="bg-amber-50/80 p-4 rounded-2xl border border-amber-100 text-center">
+                    <span id="stat-wishes" class="block text-2xl sm:text-3xl font-bold text-amber-600">0</span>
+                    <span class="text-xs text-amber-700 font-medium">Lời chúc nhận được</span>
+                </div>
+            </div>
+
+            <!-- Submissions List -->
+            <div id="admin-cards-container" class="space-y-3.5 pt-2">
+                <!-- Dynamic cards injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMIN PASSWORD MODAL -->
+    <div id="admin-pass-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="crystal-card rhinestone-border rounded-3xl p-6 max-w-sm w-full space-y-4 fade-slide-up">
+            <div class="text-center">
+                <div class="inline-flex p-3 rounded-full bg-sky-100 text-sky-600 mb-2">
+                    <i data-lucide="lock" class="w-6 h-6"></i>
+                </div>
+                <h4 class="font-serif text-xl font-bold text-sky-900">Nhập Mật Khẩu Xem Riêng Tư</h4>
+                <p class="text-xs text-slate-500 mt-1">Chỉ dành cho chủ nhân buổi lễ (Thanh Hằng)</p>
+            </div>
+            <form id="admin-pass-form" class="space-y-3">
+                <input type="password" id="admin-pass-input" placeholder="Mật khẩu (Mặc định: 26112026)" required
+                       class="w-full px-4 py-2.5 rounded-xl bg-white border border-sky-200 text-sm text-center font-mono focus:outline-none focus:border-sky-400">
+                <div class="flex gap-2">
+                    <button type="button" onclick="closeAdminPassModal()" class="w-1/2 py-2.5 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold">Hủy</button>
+                    <button type="submit" class="w-1/2 btn-sparkle text-white text-xs font-semibold py-2.5 rounded-xl">Mở Khóa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
     <script>
+        /* =====================================================================
+           GOOGLE APPS SCRIPT WEB APP URL
+           Dán đường link Web App URL Google Script của bạn vào đây (ví dụ: https://script.google.com/macros/s/XXX/exec)
+           ===================================================================== */
+        const GOOGLE_SCRIPT_URL = ""; 
+
+        // Password to view private wish dashboard (Change here if desired)
+        const ADMIN_PASSWORD = "26112026";
+
         // Initialize Lucide Icons
         lucide.createIcons();
 
@@ -559,7 +640,7 @@
             for (let i = 0; i < sparkleCount; i++) {
                 const star = document.createElement('div');
                 star.className = 'sparkle-star';
-                const size = Math.floor(Math.random() * 14) + 8; // 8px to 22px
+                const size = Math.floor(Math.random() * 14) + 8;
                 star.style.left = Math.random() * 100 + 'vw';
                 star.style.top = Math.random() * 100 + 'vh';
                 star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
@@ -571,7 +652,7 @@
         }
         initSparkles();
 
-        // 2. TOAST HELPER (Replaces alert)
+        // 2. TOAST HELPER
         let toastTimeout;
         function showToast(msg) {
             const toast = document.getElementById('toast');
@@ -584,7 +665,7 @@
             }, 3200);
         }
 
-        // 3. CLIPBOARD HELPER (Using execCommand fallback for iframe safety)
+        // 3. CLIPBOARD COPY HELPER
         function copyText(text, successMessage) {
             const tempInput = document.createElement('textarea');
             tempInput.value = text;
@@ -596,12 +677,12 @@
                 document.execCommand('copy');
                 showToast(successMessage || 'Đã sao chép!');
             } catch (err) {
-                showToast('Không thể sao chép tự động, bạn vui lòng copy thủ công nhé.');
+                showToast('Không thể sao chép tự động!');
             }
             document.body.removeChild(tempInput);
         }
 
-        // 4. PERSONALIZED GUEST NAME FROM URL PARAMETER (?guest=...)
+        // 4. PERSONALIZED GUEST & LINK GENERATOR VISIBILITY CONTROL
         const urlParams = new URLSearchParams(window.location.search);
         const rawGuest = urlParams.get('guest') || urlParams.get('to') || urlParams.get('name');
         const guestName = rawGuest && rawGuest.trim() !== '' ? rawGuest.trim() : 'Bạn thân mến';
@@ -609,36 +690,17 @@
         document.getElementById('guest-display-name').textContent = guestName;
         document.getElementById('ticket-guest-name').textContent = guestName;
         if (guestName !== 'Bạn thân mến') {
-            document.getElementById('sender-name').value = guestName;
+            document.getElementById('no-sender-name').value = guestName;
         }
 
-        // 5. PORTRAIT PHOTO UPLOAD + LOCALSTORAGE PERSISTENCE
-        const photoUploadInput = document.getElementById('photo-upload');
-        const graduatePhotoImg = document.getElementById('graduate-photo');
-
-        const savedPhoto = localStorage.getItem('thanhhang_grad_photo');
-        if (savedPhoto) {
-            graduatePhotoImg.src = savedPhoto;
+        // CONDITIONAL VISIBILITY: HIDE link generator if accessed via ?guest= link
+        const linkGenContainer = document.getElementById('link-gen-container');
+        const isHost = urlParams.get('host') === '1' || !rawGuest; 
+        if (isHost) {
+            linkGenContainer.classList.remove('hidden');
         }
 
-        photoUploadInput.addEventListener('change', function (e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = function (event) {
-                const dataUrl = event.target.result;
-                graduatePhotoImg.src = dataUrl;
-                try {
-                    localStorage.setItem('thanhhang_grad_photo', dataUrl);
-                } catch (err) {
-                    // Ignore quota exceeded if image is huge
-                }
-                showToast('Đã cập nhật ảnh chân dung lấp lánh!');
-            };
-            reader.readAsDataURL(file);
-        });
-
-        // 6. COUNTDOWN TIMER TO NOV 26, 2026 15:30:00 (GMT+7)
+        // 5. COUNTDOWN TIMER TO NOV 26, 2026 15:30:00 GMT+7
         const targetDate = new Date('2026-11-26T15:30:00+07:00').getTime();
 
         function updateCountdown() {
@@ -666,44 +728,88 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // 7. INTERACTIVE RSVP FLOW
+        // 6. RSVP & DATA SUBMISSION HANDLER
+        function saveSubmission(attendStatus, messageText) {
+            const payload = {
+                timestamp: new Date().toLocaleString("vi-VN"),
+                guest: guestName,
+                status: attendStatus,
+                message: messageText || ""
+            };
+
+            // LocalStorage backup
+            try {
+                const existing = JSON.parse(localStorage.getItem('thanhhang_rsvp_submissions') || '[]');
+                existing.unshift(payload);
+                localStorage.setItem('thanhhang_rsvp_submissions', JSON.stringify(existing));
+            } catch (e) {}
+
+            // Post to Google Apps Script if URL provided
+            if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL.trim() !== "") {
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                }).catch(() => {});
+            }
+        }
+
         const choicesBox = document.getElementById('rsvp-choices');
         const yesCard = document.getElementById('rsvp-yes-card');
         const noCard = document.getElementById('rsvp-no-card');
 
+        // YES BUTTON CLICK
         document.getElementById('btn-attend-yes').addEventListener('click', () => {
             choicesBox.classList.add('hidden');
             noCard.classList.add('hidden');
             yesCard.classList.remove('hidden');
 
-            // Trigger celebratory ice-blue & silver confetti
+            saveSubmission("Tham dự", "");
+
             if (typeof confetti === 'function') {
                 confetti({
-                    particleCount: 70,
+                    particleCount: 75,
                     spread: 70,
                     origin: { y: 0.65 },
                     colors: ['#38BDF8', '#BAE6FD', '#FFFFFF', '#0284C7', '#E0F2FE']
                 });
             }
-            showToast('Yay! Hẹn gặp bạn tại Hội trường A5 nhé ✨');
+            showToast('Hẹn gặp bạn tại Hội trường A5 nhé! ✨');
         });
 
+        // OPTIONAL WISH IN YES CARD
+        document.getElementById('yes-wish-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const msg = document.getElementById('yes-message-input').value.trim();
+            if (msg) {
+                saveSubmission("Tham dự", msg);
+                document.getElementById('yes-message-input').value = '';
+                showToast('Đã gửi thêm lời chúc mừng tới Thanh Hằng 💙');
+            }
+        });
+
+        // NO BUTTON CLICK
         document.getElementById('btn-attend-no').addEventListener('click', () => {
             choicesBox.classList.add('hidden');
             yesCard.classList.add('hidden');
-            document.getElementById('wish-form-title').textContent = 'Gửi lời nhắn & lời chúc đến Thanh Hằng';
-            document.getElementById('wish-form-subtitle').textContent = 'Dù không thể có mặt trực tiếp, lời chúc từ xa của bạn vẫn là món quà tinh thần tuyệt vời dành cho Hằng!';
             noCard.classList.remove('hidden');
-            document.getElementById('sender-message').focus();
+            document.getElementById('no-sender-message').focus();
         });
 
-        function openWishBoxFromYes() {
-            yesCard.classList.add('hidden');
-            document.getElementById('wish-form-title').textContent = 'Gửi lời chúc mừng tốt nghiệp';
-            document.getElementById('wish-form-subtitle').textContent = 'Ghi lại vài dòng kỷ niệm cùng Tân Thạc sĩ Thanh Hằng nhé!';
-            noCard.classList.remove('hidden');
-            document.getElementById('sender-message').focus();
-        }
+        // NO WISH FORM SUBMIT
+        document.getElementById('no-wish-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const sender = document.getElementById('no-sender-name').value.trim() || guestName;
+            const msg = document.getElementById('no-sender-message').value.trim();
+            
+            if (msg) {
+                saveSubmission("Không tham dự", msg);
+                document.getElementById('no-sender-message').value = '';
+                showToast('Cảm ơn bạn! Lời nhắn đã được gửi riêng đến Thanh Hằng 💙');
+                resetRsvp();
+            }
+        });
 
         function resetRsvp() {
             yesCard.classList.add('hidden');
@@ -711,18 +817,7 @@
             choicesBox.classList.remove('hidden');
         }
 
-        // 8. PRIVATE WISH SUBMISSION (NO PUBLIC GUESTBOOK WALL)
-        document.getElementById('wish-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const msgVal = document.getElementById('sender-message').value.trim();
-            if (!msgVal) return;
-
-            document.getElementById('sender-message').value = '';
-            showToast('Cảm ơn bạn! Lời nhắn đã được gửi riêng tư đến Thanh Hằng 💙');
-            resetRsvp();
-        });
-
-        // 9. CUSTOM LINK GENERATOR FOR THANH HẰNG
+        // 7. CUSTOM LINK GENERATOR TOOL
         const toggleLinkGenBtn = document.getElementById('toggle-link-gen');
         const linkGenPanel = document.getElementById('link-gen-panel');
         const customGuestInput = document.getElementById('custom-guest-input');
@@ -744,9 +839,94 @@
         });
 
         document.getElementById('copy-custom-link-btn').addEventListener('click', () => {
-            const generatedUrl = buildCustomUrl(customGuestInput.value);
-            copyText(generatedUrl, 'Đã sao chép đường link thiệp mời riêng!');
+            const urlToCopy = buildCustomUrl(customGuestInput.value);
+            copyText(urlToCopy, 'Đã sao chép đường link thiệp riêng!');
         });
+
+        // 8. PRIVATE ADMIN DASHBOARD LOGIC
+        function promptAdminLogin() {
+            document.getElementById('admin-pass-modal').classList.remove('hidden');
+            document.getElementById('admin-pass-input').focus();
+        }
+
+        function closeAdminPassModal() {
+            document.getElementById('admin-pass-modal').classList.add('hidden');
+        }
+
+        document.getElementById('admin-pass-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const inputPass = document.getElementById('admin-pass-input').value;
+            if (inputPass === ADMIN_PASSWORD) {
+                closeAdminPassModal();
+                document.getElementById('admin-pass-input').value = '';
+                openAdminView();
+            } else {
+                showToast('Mật khẩu không chính xác!');
+            }
+        });
+
+        // Direct check for ?admin=1 in URL
+        if (urlParams.get('admin') === '1') {
+            openAdminView();
+        }
+
+        function openAdminView() {
+            document.getElementById('main-invitation').classList.add('hidden');
+            document.getElementById('admin-view').classList.remove('hidden');
+            reloadAdminData();
+        }
+
+        function closeAdminView() {
+            document.getElementById('admin-view').classList.add('hidden');
+            document.getElementById('main-invitation').classList.remove('hidden');
+        }
+
+        function reloadAdminData() {
+            let list = [];
+            try {
+                list = JSON.parse(localStorage.getItem('thanhhang_rsvp_submissions') || '[]');
+            } catch (e) {}
+
+            const container = document.getElementById('admin-cards-container');
+            container.innerHTML = '';
+
+            let yesCount = 0;
+            let wishCount = 0;
+
+            if (list.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-10 text-slate-400 text-sm">
+                        Chưa có phản hồi nào được lưu lại.
+                    </div>`;
+            } else {
+                list.forEach(item => {
+                    if (item.status === "Tham dự") yesCount++;
+                    if (item.message && item.message.trim() !== "") wishCount++;
+
+                    const isYes = item.status === "Tham dự";
+                    const card = document.createElement('div');
+                    card.className = "p-4 rounded-2xl bg-white/80 border border-sky-100 shadow-sm flex flex-col gap-1.5";
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between text-xs">
+                            <span class="font-bold text-sky-900 text-sm">${item.guest || 'Khách mời'}</span>
+                            <span class="px-2.5 py-0.5 rounded-full font-medium ${isYes ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
+                                ${item.status}
+                            </span>
+                        </div>
+                        ${item.message ? `<p class="text-sm text-slate-700 bg-sky-50/70 p-3 rounded-xl border border-sky-100 mt-1">"${item.message}"</p>` : ''}
+                        <span class="text-[11px] text-slate-400 mt-1">${item.timestamp}</span>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+
+            document.getElementById('stat-total').textContent = list.length;
+            document.getElementById('stat-yes').textContent = yesCount;
+            document.getElementById('stat-wishes').textContent = wishCount;
+
+            lucide.createIcons();
+            showToast('Đã tải danh sách lời chúc mới nhất!');
+        }
     </script>
 </body>
 </html>
